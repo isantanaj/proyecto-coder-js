@@ -1,0 +1,11 @@
+.header__form{
+    display: flex;
+    height: 35px;
+    .form__btn{
+        width: 50px;
+    }
+    input[type="text"]{
+        text-align: center;
+        border: 1px solid #eeeeee;
+    }
+}

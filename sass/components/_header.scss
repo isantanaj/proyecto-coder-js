@@ -1,0 +1,13 @@
+.header{
+    display: flex;
+    align-items: center;
+    text-align: center;
+    padding: 1% 0 1% 0;
+    box-shadow: 5px 0 5px #eeeeee;
+    img{
+        width: 20%;
+    }
+    #carrito{
+        cursor: pointer;
+    }
+}

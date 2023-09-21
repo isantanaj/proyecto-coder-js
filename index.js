@@ -1,78 +1,105 @@
-//FUNCIÓN MOSTRAR TODOS LOS ARTÍCULOS
-const mostrarTodosArticulos = () => {
-  let textoAlert = '';
-  for (const articulo of articulos) {
-    textoAlert += `ID: ${articulo.id} Nombre: ${articulo.nombre} - Precio: ${articulo.precio} MXN \n`;
+const listaProducto = document.getElementById('producto-lista');
+const iconoCarrito = document.getElementById('carrito');
+let total = 0;
+// const filtroPrecio1 = document.getElementById('precio-1');
+// const filtroPrecio2 = document.getElementById('precio-2');
+// const filtroPrecio3 = document.getElementById('precio-3');
+let carrito = JSON.parse(localStorage.getItem('carrito')) || [];
+
+const mostrarProductos = (listaProductos) => {
+  for (const producto of listaProductos) {
+    listaProducto.innerHTML += `
+    <article class="contenedor__producto">
+    <div>
+    <img src="img/${producto.img}" alt="" id="producto-id">
+    </div>
+    <h2 id="producto-nombre">${producto.nombre}</h2>
+    <p id="producto-precio">$${producto.precio} MXN</p>
+    <div>
+    <button id=${producto.id} class="producto__btn">Agregar a carrito<button>
+    </div>
+    </article>
+    `;
   }
-  alert(`Hay ${articulos.length} productos \n ${textoAlert}`);
-};
 
-//FUNCIÓN FILTRAR ARTÍCULOS POR PRECIO MÁXIMO
-const filtrarPrecioMax = (precioMaximo) => {
-  //SE CREA NUEVO ARRAY PARA PRODUCTOS CON EL PRECIO MÁXIMO
-  const articulosFiltradosMax = articulos.filter(
-    (articulo) => articulo.precio <= precioMaximo
-  );
-  if (articulosFiltradosMax.length != 0) {
-    let articulosMaxAlert = '';
-    articulosFiltradosMax.map((articulo) => {
-      articulosMaxAlert += `ID: ${articulo.id} Nombre: ${articulo.nombre} - Precio: ${articulo.precio} MXN \n`;
-    });
-    alert(articulosMaxAlert);
-  } else {
-    alert('No se encuentran productos por ese precio');
-  }
-};
+  let btnCompras = document.getElementsByClassName('producto__btn');
 
-//FUNCIÓN FILTRAR ARTÍCULOS POR PRECIO MÍNIMO
-const filtrarPrecioMin = (precioMinimo) => {
-  //SE CREA NUEVO ARRAY PARA PRODUCTOS CON EL PRECIO MÍNIMO
-  const articulosFiltradosMin = articulos.filter(
-    (articulo) => articulo.precio >= precioMinimo
-  );
-
-  if (articulosFiltradosMin.length != 0) {
-    let articulosMinAlert = '';
-    articulosFiltradosMin.map((articulo) => {
-      articulosMinAlert += `ID: ${articulo.id} Nombre: ${articulo.nombre} - Precio: ${articulo.precio} MXN \n`;
-    });
-    alert(articulosMinAlert);
-  } else {
-    alert('No se encuentran productos por ese precio');
-  }
-};
-
-//OBTENER OPCIÓN
-let op = parseInt(
-  prompt(
-    'Ingrese la opción deseada:\n 1:Mostrar todos los productos\n 2:Buscar artículo por precio máximo\n 3:Buscar artículo por precio mínimo \n 0: Salir'
-  )
-);
-//SWITCH CON OPCIONES
-switch (op) {
-  case 1:
-    mostrarTodosArticulos();
-    break;
-  case 2:
-    let obtPrecioMax = parseFloat(
-      prompt('Ingresa el precio máximo que desees: (0 - Salir)')
-    );
-    while (obtPrecioMax != 0) {
-      filtrarPrecioMax(obtPrecioMax);
-      obtPrecioMax = parseFloat(
-        prompt('Ingresa el precio máximo que desees: (0 - Salir)')
+  for (const btnCompra of btnCompras) {
+    btnCompra.addEventListener('click', () => {
+      // console.log('Has hecho click en el boton' + btnCompra.id);
+      const productoCarrito = productos.find(
+        (producto) => producto.id == btnCompra.id
       );
-    }
-    break;
-  case 3:
-    let obtPrecioMin = parseFloat(
-      prompt('Ingresa el precio mínimo que desees: (0 - Salir)')
-    );
-    while (obtPrecioMin != 0) {
-      filtrarPrecioMin(obtPrecioMin);
-      obtPrecioMin = parseFloat(
-        prompt('Ingresa el precio mínimo que desees: (0 - Salir)')
-      );
-    }
-    break;
+      // console.log(productoCarrito);
+      agregarProductoACarrito(productoCarrito);
+    });
+  }
+};
+mostrarProductos(productos);
+
+function agregarProductoACarrito(producto) {
+  carrito.push(producto);
+  let tbody = document.getElementById('tbody');
+  let precioTotal = document.getElementById('precio-total');
+  tbody.innerHTML += `
+  <tr>
+  <td>${producto.nombre}</td>
+  <td>$${producto.precio}</td>
+  </tr>`;
+  total = carrito.reduce((acumulador,prod) => acumulador + producto.precio, 0);
+  precioTotal.innerHTML = `<p>Precio Total $${total}</p>`;
+
+  localStorage.setItem('carrito', JSON.stringify(carrito));
 }
+
+if(carrito.length != 0){
+recuperarCarrito();
+}
+
+function recuperarCarrito(){
+  let tbody = document.getElementById('tbody');
+  let precioTotal = document.getElementById('precio-total');
+  for(prodCarrito of carrito){
+
+    tbody.innerHTML += `
+    <tr>
+    <td>${prodCarrito.nombre}</td>
+    <td>$${prodCarrito.precio}</td>
+    </tr>`;
+  }
+  total = carrito.reduce((acumulador,prod) => acumulador + prodCarrito.precio, 0);
+  precioTotal.innerHTML = `<p>Precio Total $${total}</p>`;
+
+}
+
+iconoCarrito.addEventListener('click', desplegarCarrito);
+function desplegarCarrito() {
+  const contenedorCarrito = document.getElementById('producto-carrito');
+  contenedorCarrito.classList.toggle('ocultar');
+}
+
+/*
+const filtrarProductos = (listaProductos) => {
+  listaProducto.remove();
+  let productoFiltro = 0;
+  for (const producto of listaProductos) {
+    productoFiltro = productos.filter((producto) => producto.precio < 350);
+    listaProducto.innerHTML += `
+  <article class="contenedor__producto">
+  <div>
+  <img src="img/image 1.png" alt="" id="producto-id">
+  </div>
+  <h2 id="producto-nombre">${producto.nombre}</h2>
+  <p id="producto-precio">$${producto.precio} MXN</p>
+  <div>
+  <button id=${producto.id} class="producto__btn">Agregar a carrito<button>
+  </div>
+  </article>
+  `;
+  }
+  console.log(productoFiltro);
+};
+
+filtroPrecio1.addEventListener('click', filtrarProductos);
+filtrarProductos(productos);
+*/

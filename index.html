@@ -5,10 +5,87 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Tienda Online - Artículos de viaje</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/styles.css">
 </head>
 
-<body>
-    <h1>Artículos de viaje</h1>
+<body class="container">
+    <header class="header">
+        <div class="header__img">
+            <img src="img/logo.png" alt="" srcset="">
+        </div>
+        <form action="#" class="header__form">
+            <input type="text" placeholder="Buscar">
+            <button type="submit" class="form__btn"><i class="fa fa-search"></i></button>
+        </form>
+
+        <div class="form__shopping">
+            <i class="fa fa-shopping-cart" aria-hidden="true" id="carrito"></i>
+        </div>
+    </header>
+
+    <aside class="filtro">
+        <div class="filtro__opinion">
+            <h2>Opinión de los clientes</h2>
+            <div class="opinion__clasificacion">
+                <div class="opinion__cinco">
+                    <i class="fa fa-star" aria-hidden="true"></i>
+                    <i class="fa fa-star" aria-hidden="true"></i>
+                    <i class="fa fa-star" aria-hidden="true"></i>
+                    <i class="fa fa-star" aria-hidden="true"></i>
+                    <i class="fa fa-star" aria-hidden="true"></i>
+                </div>
+                <div class="opinion__cuatro">
+                    <i class="fa fa-star" aria-hidden="true"></i>
+                    <i class="fa fa-star" aria-hidden="true"></i>
+                    <i class="fa fa-star" aria-hidden="true"></i>
+                    <i class="fa fa-star" aria-hidden="true"></i>
+                </div>
+                <div class="opinion__tres">
+                    <i class="fa fa-star" aria-hidden="true"></i>
+                    <i class="fa fa-star" aria-hidden="true"></i>
+                    <i class="fa fa-star" aria-hidden="true"></i>
+                </div>
+                <div class="opinion__dos">
+                    <i class="fa fa-star" aria-hidden="true"></i>
+                    <i class="fa fa-star" aria-hidden="true"></i>
+                </div>
+                <div class="opinion__uno">
+                    <i class="fa fa-star" aria-hidden="true"></i>
+                </div>
+            </div>
+        </div>
+
+        <div class="filtro__precio">
+            <h2>Precio</h2>
+            <p id="precio-1" class="precio__filtrar"> < $350</p>
+                    <p id="precio-2" class="precio__filtrar">$350 - $700</p>
+                    <p id="precio-3" class="precio__filtrar"> $350</p>
+        </div>
+    </aside>
+
+    <section class="contenedor" id="producto-lista">
+        <!-- Cartas Productos -->
+        <div class="contenedor__carrito ocultar" id="producto-carrito">
+            <table class="tabla">
+                <thead>
+                  <tr id="thead">
+                    <th>Nombre</th>
+                    <th>Precio</th>
+                  </tr>
+                </thead>
+                <tbody id="tbody">
+                    <!-- productos -->
+                    </tr>                  
+                </tbody>
+              </table>
+              <h3 id="precio-total"></h3>
+        </div>
+    </section>
+
     <script src="productos.js"></script>
     <script src="index.js"></script>
 </body>

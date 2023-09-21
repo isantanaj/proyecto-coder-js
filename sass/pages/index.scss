@@ -1,0 +1,86 @@
+.container{
+    display: grid;
+    grid-template-columns: 260px 1fr;
+    grid-template-rows: 100px 1fr;
+    grid-template-areas: "header header"
+                         "filtro contenedor"
+                         "filtro contenedor";
+}
+
+.header{
+    grid-area: header;
+}
+
+.filtro{
+    grid-area: filtro;
+    background-color: #f9f9f9;
+    text-align: center;
+    .filtro__opinion{
+        display: flex;
+        flex-direction: column;
+    }
+
+    .opinion__clasificacion{
+        flex-direction: column;
+        margin: 10% 0 10% 0;
+    }
+}
+
+.opinion__clasificacion i{
+    margin-top:10px;
+    width: 20px;
+    text-align: center;
+}
+.opinion__cinco, .opinion__cuatro, .opinion__tres,
+.opinion__dos, .opinion__uno{
+    display: flex;
+}
+.contenedor{
+    grid-area: contenedor;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    padding:0 10% 10% 10%;
+    gap: 20px;
+    .contenedor__carrito{
+        position: absolute;
+        padding-top: 5%;
+        background-color: #ffffff;
+        text-align: center;
+        width: 300px;
+        height: 100vh;
+        right: 0;
+        box-shadow: -5px 0 5px #eeeeee;
+    }
+}
+.contenedor__producto img{
+    width: 50%;
+}
+.contenedor__producto{
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 10%;
+    .producto__btn{
+        margin-top: 10px;
+        width: 50%;
+        padding: 5px;
+    }
+}
+
+.ocultar{
+    display: none;
+}
+
+.tabla{
+    width:250px;
+}
+
+.precio__filtrar{
+    cursor: pointer;
+    margin-top: 10%;
+}
+
+.producto__btn{
+    cursor: pointer;
+}
