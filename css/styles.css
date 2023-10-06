@@ -5,6 +5,7 @@
   border: 0;
   box-sizing: border-box;
   width: 100%;
+  overflow: hidden;
 }
 
 .form__btn {
@@ -48,6 +49,10 @@
   grid-template-columns: 260px 1fr;
   grid-template-rows: 100px 1fr;
   grid-template-areas: "header header" "filtro contenedor" "filtro contenedor";
+}
+
+.contenedor {
+  grid-area: contenedor;
 }
 
 .header {
@@ -129,6 +134,78 @@
 
 .producto__btn {
   cursor: pointer;
+}
+
+.btn__aside {
+  cursor: pointer;
+  margin: 10px 0 10px 0;
+  padding: 5px;
+  width: 200px;
+}
+.btn__aside:hover {
+  background-color: #000;
+  color: #fff;
+}
+
+.fin__pago {
+  text-align: center;
+}
+
+.container-pago {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 100px 1fr;
+  grid-template-areas: "header header" "productos__pago datos ";
+}
+
+.productos__pago {
+  grid-area: productos__pago;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  height: 50vh;
+}
+.productos__pago .pago__producto {
+  width: 20%;
+}
+
+.datos {
+  grid-area: datos;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#precio-total-carrito {
+  text-align: center;
+}
+
+.form__datos {
+  padding: 0 10% 0 10%;
+}
+
+.input {
+  border: 1px solid #000;
+  margin-bottom: 10px;
+}
+
+label {
+  margin-top: 200px;
+}
+
+.popup {
+  display: none;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
+  position: absolute;
+  background-color: #fff;
+  width: 100%;
+  height: 100vh;
+}
+
+.mostrar {
+  display: block;
 }
 
 /*# sourceMappingURL=styles.css.map */

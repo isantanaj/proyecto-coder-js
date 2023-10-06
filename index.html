@@ -10,6 +10,9 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="css/styles.css">
+    <!-- Toastify -->
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css">
+
 </head>
 
 <body class="container">
@@ -18,8 +21,8 @@
             <img src="img/logo.png" alt="" srcset="">
         </div>
         <form action="#" class="header__form">
-            <input type="text" placeholder="Buscar">
-            <button type="submit" class="form__btn"><i class="fa fa-search"></i></button>
+            <input type="search" placeholder="Buscar" id="buscar">
+            <button type="submit" class="form__btn" id="btn-buscar"><i class="fa fa-search"></i></button>
         </form>
 
         <div class="form__shopping">
@@ -28,43 +31,14 @@
     </header>
 
     <aside class="filtro">
-        <div class="filtro__opinion">
-            <h2>Opinión de los clientes</h2>
-            <div class="opinion__clasificacion">
-                <div class="opinion__cinco">
-                    <i class="fa fa-star" aria-hidden="true"></i>
-                    <i class="fa fa-star" aria-hidden="true"></i>
-                    <i class="fa fa-star" aria-hidden="true"></i>
-                    <i class="fa fa-star" aria-hidden="true"></i>
-                    <i class="fa fa-star" aria-hidden="true"></i>
-                </div>
-                <div class="opinion__cuatro">
-                    <i class="fa fa-star" aria-hidden="true"></i>
-                    <i class="fa fa-star" aria-hidden="true"></i>
-                    <i class="fa fa-star" aria-hidden="true"></i>
-                    <i class="fa fa-star" aria-hidden="true"></i>
-                </div>
-                <div class="opinion__tres">
-                    <i class="fa fa-star" aria-hidden="true"></i>
-                    <i class="fa fa-star" aria-hidden="true"></i>
-                    <i class="fa fa-star" aria-hidden="true"></i>
-                </div>
-                <div class="opinion__dos">
-                    <i class="fa fa-star" aria-hidden="true"></i>
-                    <i class="fa fa-star" aria-hidden="true"></i>
-                </div>
-                <div class="opinion__uno">
-                    <i class="fa fa-star" aria-hidden="true"></i>
-                </div>
-            </div>
-        </div>
-
         <div class="filtro__precio">
             <h2>Precio</h2>
-            <p id="precio-1" class="precio__filtrar"> < $350</p>
+            <p id="precio-1" class="precio__filtrar">
+                <$350 </p>
                     <p id="precio-2" class="precio__filtrar">$350 - $700</p>
-                    <p id="precio-3" class="precio__filtrar"> $350</p>
+                    <p id="precio-3" class="precio__filtrar"> >$700</p>
         </div>
+        <button class="btn__aside" id="quitar-filtro">Borrar Filtro</button>
     </aside>
 
     <section class="contenedor" id="producto-lista">
@@ -72,20 +46,23 @@
         <div class="contenedor__carrito ocultar" id="producto-carrito">
             <table class="tabla">
                 <thead>
-                  <tr id="thead">
-                    <th>Nombre</th>
-                    <th>Precio</th>
-                  </tr>
+                    <tr id="thead">
+                        <th>Nombre</th>
+                        <th>Precio</th>
+                    </tr>
                 </thead>
                 <tbody id="tbody">
                     <!-- productos -->
-                    </tr>                  
+                    </tr>
                 </tbody>
-              </table>
-              <h3 id="precio-total"></h3>
+            </table>
+            <button id="vaciar-carrito" class="btn__aside">Vaciar Carrito</button>
+            <a href="./pago.html"><button id="pagar" class="btn__aside">Pagar</button></a>
+            <h3 id="precio-total"></h3>
         </div>
     </section>
-
+    <!-- toastify -->
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
     <script src="productos.js"></script>
     <script src="index.js"></script>
 </body>

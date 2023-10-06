@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tienda Online - Artículos de viaje</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/styles.css">
+    <!-- Toastify -->
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css">
+
+</head>
+
+<body class="container-pago">
+    <header class="header">
+        <div class="header__img">
+            <img src="img/logo.png" alt="" srcset="">
+        </div>
+        <div class="form__shopping">
+
+        </div>
+    </header>
+    <div class="popup" id="pop-up">
+        <h1>Pedido realizado</h1>
+        <h2>Favor de entregar efectivo al repartidor al momento de realizar su entrega</h2>
+        <center><button class="btn__aside" name="redirect" onclick="redirect()">Finalizar pedido</button></center>
+    </div>
+    <section class="productos__pago" id="lista-productos-pagar">
+    </section>
+    <h3 id="precio-total-carrito"></h3>
+
+    <section class="datos" id="datos">
+        <form class="form__datos">
+            <label for="name">Nombre:</label>
+            <input type="text" id="name" value="Iván" class="input"/>
+            <label for="tel">Teléfono:</label>
+            <input type="tel" id="tel" value="Iván" class="input"/>
+            <label for="email" >Email:</label>
+            <input type="email" id="email" value="Iván" class="input"/>
+        </form>
+    </section>
+
+    <div class="fin__pago">
+        <button  class="btn__aside" id="finalizar-pago">Realizar pedido</button>
+    </div>
+
+    <!-- toastify -->
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
+    <script src="productos.js"></script>
+    <script src="index.js"></script>
+    <script src="pago.js"></script>
+</body>
+
+</html>

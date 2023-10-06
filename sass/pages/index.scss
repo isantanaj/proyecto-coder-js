@@ -6,7 +6,9 @@
                          "filtro contenedor"
                          "filtro contenedor";
 }
-
+.contenedor{
+    grid-area: contenedor;
+}
 .header{
     grid-area: header;
 }
@@ -83,4 +85,19 @@
 
 .producto__btn{
     cursor: pointer;
+}
+
+.btn__aside{
+    cursor: pointer;
+    margin: 10px 0 10px 0;
+    padding: 5px;
+    width: 200px;
+    &:hover{
+        background-color: #000;
+        color: #fff;
+    }
+}
+
+.fin__pago{
+    text-align: center;
 }
